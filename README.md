@@ -1,5 +1,7 @@
 # rinha-2024
 
+[Link original Rinha](https://github.com/zanfranceschi/rinha-de-backend-2024-q1?tab=readme-ov-file)
+
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
