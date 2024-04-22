@@ -1,6 +1,6 @@
 package git.ljeronimodarocha.entity.dto;
 
-import git.ljeronimodarocha.BigIntegerDeserializer;
+import git.ljeronimodarocha.validators.BigIntegerDeserializer;
 import git.ljeronimodarocha.entity.enums.TipoTransacao;
 import git.ljeronimodarocha.validators.StringOnly;
 import jakarta.json.bind.annotation.JsonbTypeDeserializer;

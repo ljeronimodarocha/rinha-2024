@@ -1,4 +1,4 @@
-package git.ljeronimodarocha;
+package git.ljeronimodarocha.validators;
 
 
 import jakarta.json.bind.serializer.DeserializationContext;
