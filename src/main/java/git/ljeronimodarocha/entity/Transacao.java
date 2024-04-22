@@ -2,10 +2,14 @@ package git.ljeronimodarocha.entity;
 
 import git.ljeronimodarocha.entity.enums.TipoTransacao;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.*;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.Size;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.time.ZonedDateTime;
 
 @Entity
@@ -21,8 +25,8 @@ public class Transacao implements Serializable {
     private Cliente cliente;
 
     @NotNull
-    @Positive
-    private Long valor;
+    @PositiveOrZero
+    private BigInteger valor;
 
     @Enumerated(EnumType.STRING)
     private TipoTransacao tipo;
@@ -52,11 +56,11 @@ public class Transacao implements Serializable {
         this.cliente = cliente;
     }
 
-    public Long getValor() {
+    public BigInteger getValor() {
         return valor;
     }
 
-    public void setValor(Long valor) {
+    public void setValor(BigInteger valor) {
         this.valor = valor;
     }
 

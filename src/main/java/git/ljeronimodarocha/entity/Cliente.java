@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.List;
 
 @Entity
@@ -17,13 +18,13 @@ public class Cliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
     @Column
-    public Long limite;
+    public BigInteger limite;
     @Column
     private String nome;
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Transacao> transacoes;
     @Column
-    private Long saldo;
+    private BigInteger saldo;
 
     public Long getId() {
         return id;
@@ -33,11 +34,11 @@ public class Cliente implements Serializable {
         this.id = id;
     }
 
-    public Long getLimite() {
+    public BigInteger getLimite() {
         return limite;
     }
 
-    public void setLimite(Long limite) {
+    public void setLimite(BigInteger limite) {
         this.limite = limite;
     }
 
@@ -49,24 +50,24 @@ public class Cliente implements Serializable {
         this.nome = nome;
     }
 
-    public Long getSaldo() {
+    public BigInteger getSaldo() {
         return saldo;
     }
 
-    public void setSaldo(Long saldo) {
+    public void setSaldo(BigInteger saldo) {
         this.saldo = saldo;
     }
 
-    public void credita(Long valor) {
-        this.saldo += valor;
+    public void credita(BigInteger valor) {
+        this.saldo.add(valor);
     }
 
-    public void debita(Long valor) {
-        this.saldo -= valor;
+    public void debita(BigInteger valor) {
+        this.saldo.subtract(valor);
     }
 
     public boolean saldoValido() {
-        return this.limite.compareTo(Math.abs(this.saldo)) >= 0;
+        return this.limite.compareTo(this.saldo) >= 0;
     }
 
     public void adicionarTransacao(Transacao transacao) {

@@ -3,30 +3,32 @@ package git.ljeronimodarocha.entity.dto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import git.ljeronimodarocha.util.Mapper;
 
+import java.math.BigInteger;
+
 public class TransacaoResponseDTO {
 
-    private Long limite;
+    private BigInteger limite;
 
-    private Long saldo;
+    private BigInteger saldo;
 
-    public TransacaoResponseDTO(Long limite, Long saldo) {
+    public TransacaoResponseDTO(BigInteger limite, BigInteger saldo) {
         this.limite = limite;
         this.saldo = saldo;
     }
 
-    public void setLimite(Long limite) {
+    public void setLimite(BigInteger limite) {
         this.limite = limite;
     }
 
-    public void setSaldo(Long saldo) {
+    public void setSaldo(BigInteger saldo) {
         this.saldo = saldo;
     }
 
-    public Long getLimite() {
+    public BigInteger getLimite() {
         return limite;
     }
 
-    public Long getSaldo() {
+    public BigInteger getSaldo() {
         return saldo;
     }
 

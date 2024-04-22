@@ -2,14 +2,12 @@ package git.ljeronimodarocha.entity.enums;
 
 
 import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import java.util.EnumSet;
 import java.util.Map;
 import java.util.TreeMap;
 
-@JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum TipoTransacaoError {
     CREDITO("c"),
     DEBITO("d");

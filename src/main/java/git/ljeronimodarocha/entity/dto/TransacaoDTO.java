@@ -1,28 +1,31 @@
 package git.ljeronimodarocha.entity.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import git.ljeronimodarocha.entity.enums.TipoTransacao;
 import git.ljeronimodarocha.util.Mapper;
 
+import java.math.BigInteger;
 import java.time.ZonedDateTime;
 
+@JsonPropertyOrder({"valor", "tipo", "descricao", "realizadaEm"})
 public class TransacaoDTO {
 
-    private Long valor;
+    private BigInteger valor;
     private TipoTransacao tipo;
     private String descricao;
-    @JsonProperty(namespace = "realizada_em")
+    @JsonProperty("realizada_em")
     private ZonedDateTime realizadaEm;
 
-    public TransacaoDTO(Long valor, TipoTransacao tipo, String descricao, ZonedDateTime realizadaEm) {
+    public TransacaoDTO(BigInteger valor, TipoTransacao tipo, String descricao, ZonedDateTime realizadaEm) {
         this.valor = valor;
         this.tipo = tipo;
         this.descricao = descricao;
         this.realizadaEm = realizadaEm;
     }
 
-    public Long getValor() {
+    public BigInteger getValor() {
         return valor;
     }
 
@@ -34,6 +37,7 @@ public class TransacaoDTO {
         return descricao;
     }
 
+    @JsonProperty(namespace = "realizada_em", value = "realizada_em")
     public ZonedDateTime getRealizadaEm() {
         return realizadaEm;
     }

@@ -8,7 +8,7 @@ public class Mapper {
 
     public static ObjectMapper getMapper() {
         return new ObjectMapper().registerModule(new JavaTimeModule())
-                .configure(SerializationFeature.INDENT_OUTPUT, true);
+                .configure(SerializationFeature.INDENT_OUTPUT, false);
     }
 
     Mapper() {

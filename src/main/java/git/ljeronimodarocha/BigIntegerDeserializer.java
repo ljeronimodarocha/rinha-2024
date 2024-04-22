@@ -7,11 +7,12 @@ import jakarta.json.stream.JsonParser;
 import jakarta.validation.UnexpectedTypeException;
 
 import java.lang.reflect.Type;
+import java.math.BigInteger;
 
-public class StringDeserializer implements JsonbDeserializer<Long> {
+public class BigIntegerDeserializer implements JsonbDeserializer<BigInteger> {
 
     @Override
-    public Long deserialize(JsonParser parser, DeserializationContext ctx, Type rtType) {
+    public BigInteger deserialize(JsonParser parser, DeserializationContext ctx, Type rtType) {
         String value = parser.getString();
 
         // Verifica se o valor é um número inteiro sem decimais
@@ -19,7 +20,7 @@ public class StringDeserializer implements JsonbDeserializer<Long> {
             throw new UnexpectedTypeException("O valor não é um número inteiro sem decimais: " + value);
         }
 
-        return Long.parseLong(value);
+        return new BigInteger(value);
     }
 
 

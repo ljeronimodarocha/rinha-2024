@@ -1,16 +1,18 @@
 package git.ljeronimodarocha.entity.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import git.ljeronimodarocha.util.Mapper;
+import jakarta.json.bind.annotation.JsonbProperty;
+import jakarta.json.bind.annotation.JsonbPropertyOrder;
 
 import java.util.List;
 
+@JsonbPropertyOrder({"saldo", "ultimas_transacoes"})
 public class ExtratoDTO {
 
     private SaldoDTO saldo;
 
-    @JsonProperty(namespace = "ultimas_transacoes")
+    @JsonbProperty("ultimas_transacoes")
     private List<TransacaoDTO> ultimasTransacoes;
 
     public ExtratoDTO(SaldoDTO saldo, List<TransacaoDTO> transacoes) {
@@ -26,6 +28,7 @@ public class ExtratoDTO {
         this.saldo = saldo;
     }
 
+    @JsonbProperty("ultimas_transacoes")
     public List<TransacaoDTO> getUltimasTransacoes() {
         return ultimasTransacoes;
     }
